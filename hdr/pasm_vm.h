@@ -20,7 +20,7 @@ typedef enum {
 
     OP_XCHG,
 
-    OP_CMP,
+    OP_CMPI,
 
     OP_JMP_IF_F,
     OP_JMP_IF_NOT_F,
