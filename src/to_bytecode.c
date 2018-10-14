@@ -72,6 +72,10 @@ uint32_t* to_bytecode(FILE* fp, uint32_t *bytecode) {
             } else if (!strcmp(op, "JMP_IF_NOT_F")) {
                 bytecode[bytecode_idx] = 0x0f000000;
                 bytecode[bytecode_idx] |= 0x00ffffff & atoi(arg);
+            }
+            else if (!strcmp(op, "CMP")) {
+                bytecode[bytecode_idx] = 0c0d000000;
+                bytecode[bytecode_idx] |= 0x00ffffff & atoi(arg);
             } else puts("IDIOT");
             //printf("%x\n", bytecode[bytecode_idx]);
             bytecode_idx++;
@@ -88,8 +92,6 @@ uint32_t* to_bytecode(FILE* fp, uint32_t *bytecode) {
                 bytecode[bytecode_idx] = 0x07000000;
             else if (!strcmp(op, "XCHG"))
                 bytecode[bytecode_idx] = 0x0c000000;
-            else if (!strcmp(op, "CMP"))
-                bytecode[bytecode_idx] = 0x0d000000;
             else if (!strcmp(op, "PRINT_R0"))
                 bytecode[bytecode_idx] = 0x10000000;
             else if (!strcmp(op, "PRINT_R1"))
