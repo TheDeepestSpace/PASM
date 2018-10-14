@@ -75,7 +75,7 @@ interpretation_result vm_interpret(uint32_t *bytecode) {
                 vm.r0 ^= vm.r1;
                 break;
 
-            case OP_CMP:
+            case OP_CMPI:
                 vm.f = vm.r0 == arg;
                 break;
 

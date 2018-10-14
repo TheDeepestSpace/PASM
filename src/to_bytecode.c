@@ -66,7 +66,7 @@ uint32_t* to_bytecode(FILE* fp, uint32_t *bytecode) {
             } else if (!strcmp(op, "EXPI")) {
                 bytecode[bytecode_idx] = 0x0b000000;
                 bytecode[bytecode_idx] |= 0x00ffffff & atoi(arg);
-            } else if (!strcmp(op, "CMP")) {
+            } else if (!strcmp(op, "CMPI")) {
                 bytecode[bytecode_idx] = 0x0d000000;
                 bytecode[bytecode_idx] |= 0x00ffffff & atoi(arg);
             } else if (!strcmp(op, "JMP_IF_F")) {
